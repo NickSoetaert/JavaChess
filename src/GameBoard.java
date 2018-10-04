@@ -16,7 +16,9 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.border.EtchedBorder;
 
-public class GameBoard extends JPanel{   
+public class GameBoard extends JPanel{
+    private static boolean whiteToMove = true;
+    private static int moveNumber = 1;
     private final static int NUM_ROWS = 8;
     private final static int NUM_COLUMNS = 8;
     //a 2d array of all game tiles. 0,0 represents the bottom left, 7,7 top right.
@@ -26,8 +28,7 @@ public class GameBoard extends JPanel{
     private static Tile _from;
     private static boolean _pieceIsSelected = false;
     
-    //White Pieces. TO CONSIDER: How do I handle promoting?
-    //Do I even need to keep track of my pieces like this?
+    //White Pieces
     Pawn whitePawns[] = new Pawn[8];
     List<Rook> whiteRooks = new ArrayList<>();
     List<Knight> whiteKnights = new ArrayList<>();
@@ -182,10 +183,14 @@ public class GameBoard extends JPanel{
         Point cord = moveTo.getCordinates(); 
         Piece piece = moveFrom.getPiece();
         if(checkForPiecesInMovePath(moveFrom, moveTo)
-        && piece.checkIfMoveShapeIsLegal(moveFrom, moveTo)){
+        && piece.checkIfMoveShapeIsLegal(moveFrom, moveTo)
+        && piece.notCapturingEnemy(moveTo.getPiece())){
             moveFrom.removePiece(); //remove piece from start tile...
             setPiece(SQUARES[cord.x][cord.y], piece); //and set it on end tile
             piece.setHasMoved(); //note that the piece has moved at least once
+            whiteToMove = !whiteToMove; //flip whose move it is
+            moveNumber++;
+            
             if (piece instanceof Pawn) {
                 ((Pawn) piece).promote(moveTo);
             }

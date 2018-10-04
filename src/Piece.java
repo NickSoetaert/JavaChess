@@ -27,12 +27,17 @@ public abstract class Piece {
     public PieceType getType(){
         return _type;
     }
+    
+    public PieceColor getColor(){
+        return _color;
+    }
+    
     //Checks if piece you're trying to caputre is an enemy piece or not
-    protected boolean capturingEnemy(Piece enemy){
+    protected boolean notCapturingEnemy(Piece enemy){
         if(enemy != null){
             return enemy._color != this._color;
         } else {
-            return false;
+            return true; //if the square is empty, you are not capturing an enemy.
         }
     }
 }

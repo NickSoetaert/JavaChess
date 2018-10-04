@@ -22,5 +22,6 @@ public class King extends Piece{
     @Override
     public boolean checkIfMoveShapeIsLegal(Tile start, Tile destination){
         return true;
+            
     }
 }
