@@ -55,7 +55,7 @@ public class Pawn extends Piece {
         Piece enemyPiece = endTile.getPiece();
         return((start.x == destination.x + _singleDirectionalMoveUnit) 
                 && (Math.abs(start.y - destination.y) == 1) //make sure we're only moving one square, either left or right
-                && notCapturingEnemy(enemyPiece));
+                && isCapturingEnemy(enemyPiece));  //make sure we're capturing an enemy piece
     }
 
     public void promote(Tile promotionSquare){

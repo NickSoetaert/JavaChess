@@ -17,7 +17,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.border.EtchedBorder;
 
 public class GameBoard extends JPanel{
-    private static boolean whiteToMove = true;
+    private SideColor _toMove = SideColor.WHITE;
     //private static int moveNumber = 1;
     private final static int NUM_ROWS = 8;
     private final static int NUM_COLUMNS = 8;
@@ -177,19 +177,29 @@ public class GameBoard extends JPanel{
         square.setPieceOnTile(piece);
     }
     
+    //If white just moved, _toMove becomes Black, vis versa
+    private void changeWhoseTurnItIs(){
+        if(_toMove == SideColor.WHITE){
+            _toMove = SideColor.BLACK;
+        }
+        else {
+            _toMove = SideColor.WHITE;
+        }
+    }
+    
     //Moves a piece from one square to another. Does NOT check for move
     //legality; that is handled by each individual piece's move function.
     private void movePiece(Tile moveFrom, Tile moveTo){
         Point cord = moveTo.getCordinates(); 
         Piece piece = moveFrom.getPiece();
         if(checkForPiecesInMovePath(moveFrom, moveTo)
-        && piece.checkIfMoveShapeIsLegal(moveFrom, moveTo)
-        && piece.notCapturingEnemy(moveTo.getPiece())){
+         && piece.checkIfMoveShapeIsLegal(moveFrom, moveTo)
+         && piece.isNotAttackingSameTeam(moveTo.getPiece())
+         && piece.isMyTurn(_toMove)){
             moveFrom.removePiece(); //remove piece from start tile...
             setPiece(SQUARES[cord.x][cord.y], piece); //and set it on end tile
             piece.setHasMoved(); //note that the piece has moved at least once
-            whiteToMove = !whiteToMove; //flip whose move it is
-            //moveNumber++;   
+            changeWhoseTurnItIs(); //change who it is to move
             
             if (piece instanceof Pawn) {
                 ((Pawn) piece).promote(moveTo);

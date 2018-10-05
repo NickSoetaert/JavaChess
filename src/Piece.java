@@ -33,11 +33,26 @@ public abstract class Piece {
     }
     
     //Checks if piece you're trying to caputre is an enemy piece or not
-    protected boolean notCapturingEnemy(Piece enemy){
-        if(enemy != null){
-            return enemy._color != this._color;
+    protected boolean isNotAttackingSameTeam(Piece otherPiece){
+        if(otherPiece != null){  //if there is another piece...
+            return otherPiece._color != this._color;
         } else {
-            return true; //if the square is empty, you are not capturing an enemy.
+            return true; //if the square is empty, you are not attacking a friendly
         }
     }
+    
+    //Checks if square you're moving to contains an enemy piece or not
+    protected boolean isCapturingEnemy(Piece otherPiece){
+        if(otherPiece != null){  //if there is another piece...
+            return otherPiece._color != this._color; //if colors are different, return true
+        } else {
+            return false; //if the square is empty, you are not attacking an enemy
+        }
+    }
+    
+    //checks if it is your turn to move
+    protected boolean isMyTurn(SideColor toMove){
+        return this.getColor() == toMove;
+    }
+    
 }
