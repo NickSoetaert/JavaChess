@@ -9,14 +9,14 @@ import javax.swing.ImageIcon;
 
 
 public class Rook extends Piece {
-    public Rook(PieceColor color){
+    public Rook(SideColor color){
          _type = PieceType.ROOK;
-        if(color == PieceColor.WHITE_PIECE){
+        if(color == SideColor.WHITE){
             this._pieceImage = new ImageIcon("Images/whiteRook.png");
-            _color = PieceColor.WHITE_PIECE;
+            _color = SideColor.WHITE;
         } else {
             this._pieceImage = new ImageIcon("Images/blackRook.png");
-            _color = PieceColor.BLACK_PIECE;
+            _color = SideColor.BLACK;
         }
     }
     @Override

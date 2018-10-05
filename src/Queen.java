@@ -7,14 +7,14 @@ import java.awt.Point;
 import javax.swing.ImageIcon;
 
 public class Queen extends Piece{
-    public Queen(PieceColor color){
+    public Queen(SideColor color){
         _type = PieceType.QUEEN;
-        if(color == PieceColor.WHITE_PIECE){
+        if(color == SideColor.WHITE){
             this._pieceImage = new ImageIcon("Images/whiteQueen.png");
-            _color = PieceColor.WHITE_PIECE;
+            _color = SideColor.WHITE;
         } else {
             this._pieceImage = new ImageIcon("Images/blackQueen.png");
-            _color = PieceColor.BLACK_PIECE;
+            _color = SideColor.BLACK;
         }
     }
     @Override

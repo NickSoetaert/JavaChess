@@ -8,6 +8,6 @@
  *
  * @author nick
  */
-public enum PieceColor {
-    WHITE_PIECE, BLACK_PIECE
+public enum SideColor {
+    WHITE, BLACK
 }

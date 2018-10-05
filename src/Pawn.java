@@ -12,15 +12,15 @@ import java.awt.event.ActionListener;
 public class Pawn extends Piece {
     private boolean _canTakeEP = false; //true when pawn can be captured en passant
     private final int _singleDirectionalMoveUnit;
-    public Pawn(PieceColor color){
+    public Pawn(SideColor color){
         _type = PieceType.PAWN;
-        if(color == PieceColor.WHITE_PIECE){
+        if(color == SideColor.WHITE){
             this._pieceImage = new ImageIcon("Images/whitePawn.png");
-            _color = PieceColor.WHITE_PIECE;
+            _color = SideColor.WHITE;
             _singleDirectionalMoveUnit = -1;
         } else {
             this._pieceImage = new ImageIcon("Images/blackPawn.png");
-            _color = PieceColor.BLACK_PIECE;
+            _color = SideColor.BLACK;
             _singleDirectionalMoveUnit = 1;
         }
     }
@@ -71,7 +71,7 @@ public class Pawn extends Piece {
         private final static int DEFAULT_WIDTH = 300;
         private final static int DEFAULT_HEIGHT = 200;
         PromotePopUp(Tile promotionSquare){
-            PieceColor color = promotionSquare.getPiece()._color;
+            SideColor color = promotionSquare.getPiece()._color;
             
             final JButton queen = new JButton(); 
             final JButton rook = new JButton();
@@ -131,7 +131,7 @@ public class Pawn extends Piece {
             ImageIcon bishopImage = new ImageIcon("Images/whiteBishop.png");
             
             //if the piece isn't white, change the images to black
-            if(color == PieceColor.BLACK_PIECE){
+            if(color == SideColor.BLACK){
                 queenImage = new ImageIcon("Images/blackQueen.png");
                 rookImage = new ImageIcon("Images/blackRook.png");
                 knightImage = new ImageIcon("Images/blackKnight.png");

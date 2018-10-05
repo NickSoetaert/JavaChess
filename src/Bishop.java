@@ -7,14 +7,14 @@ import java.awt.Point;
 import javax.swing.ImageIcon;
 
 public class Bishop extends Piece{
-    public Bishop(PieceColor color){
+    public Bishop(SideColor color){
         _type = PieceType.BISHOP;
-        if(color == PieceColor.WHITE_PIECE){
+        if(color == SideColor.WHITE){
             this._pieceImage = new ImageIcon("Images/whiteBishop.png");
-            _color = PieceColor.WHITE_PIECE;
+            _color = SideColor.WHITE;
         } else {
             this._pieceImage = new ImageIcon("Images/blackBishop.png");
-            _color = PieceColor.BLACK_PIECE;
+            _color = SideColor.BLACK;
         }
     }
     @Override

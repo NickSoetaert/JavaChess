@@ -19,10 +19,10 @@ public class Tile {
     //For just one, recalculate each turn, use turn logic. (Only pieces that are 
     //white "exist" on the board)
     
-    //private static final Color DARK_COLOR = new Color(240, 22, 22); //dark red
-    //private static final Color DARK_COLOR = new Color(50, 200, 100); //green
+    //private static final SideColor DARK_COLOR = new SideColor(240, 22, 22); //dark red
+    //private static final SideColor DARK_COLOR = new SideColor(50, 200, 100); //green
     private static final Color DARK_COLOR = new Color(10, 50, 140); //blue
-    //private static final Color DARK_COLOR = new Color(75, 0, 75); //dark purple
+    //private static final SideColor DARK_COLOR = new SideColor(75, 0, 75); //dark purple
     
     //constructor: Gives corddinates and color to tile, along with preping the layout for pieces.
     Tile(Point cord, TileColor color){

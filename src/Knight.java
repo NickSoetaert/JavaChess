@@ -8,14 +8,14 @@ import java.awt.Point;
 import javax.swing.ImageIcon;
 
 public class Knight extends Piece {
-    public Knight(PieceColor color){
+    public Knight(SideColor color){
         _type = PieceType.KNIGHT;
-        if(color == PieceColor.WHITE_PIECE){
+        if(color == SideColor.WHITE){
             this._pieceImage = new ImageIcon("Images/whiteKnight.png");
-            _color = PieceColor.WHITE_PIECE;
+            _color = SideColor.WHITE;
         } else {
             this._pieceImage = new ImageIcon("Images/blackKnight.png");
-            _color = PieceColor.BLACK_PIECE;
+            _color = SideColor.BLACK;
         }
     }
     @Override

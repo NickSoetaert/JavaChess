@@ -18,7 +18,7 @@ import javax.swing.border.EtchedBorder;
 
 public class GameBoard extends JPanel{
     private static boolean whiteToMove = true;
-    private static int moveNumber = 1;
+    //private static int moveNumber = 1;
     private final static int NUM_ROWS = 8;
     private final static int NUM_COLUMNS = 8;
     //a 2d array of all game tiles. 0,0 represents the bottom left, 7,7 top right.
@@ -34,7 +34,7 @@ public class GameBoard extends JPanel{
     List<Knight> whiteKnights = new ArrayList<>();
     List<Bishop> whiteBishops = new ArrayList<>();
     List<Queen> whiteQueens = new ArrayList<>();
-    King whiteKing = new King(PieceColor.WHITE_PIECE);
+    King whiteKing = new King(SideColor.WHITE);
     
     //Black Pieces
     Pawn blackPawns[] = new Pawn[8];
@@ -42,7 +42,7 @@ public class GameBoard extends JPanel{
     List<Knight> blackKnights = new ArrayList<>();
     List<Bishop> blackBishops = new ArrayList<>();
     List<Queen> blackQueens = new ArrayList<>();
-    King blackKing = new King(PieceColor.BLACK_PIECE);
+    King blackKing = new King(SideColor.BLACK);
 
     //constructor
     public GameBoard(){
@@ -91,13 +91,13 @@ public class GameBoard extends JPanel{
         //WHITE PIECES:
         //create white pawns on square 1,0 to 1,7, and then put in array.
         for(int i = 0; i < 8; i++){
-            Pawn pawn = new Pawn(PieceColor.WHITE_PIECE);
+            Pawn pawn = new Pawn(SideColor.WHITE);
             whitePawns[i] = pawn;
             setPiece(SQUARES[1][i], pawn);
         }
         //white rooks on 0,0 and 0,7
         for(int i = 0; i < 2; i++){
-            Rook rook = new Rook(PieceColor.WHITE_PIECE);
+            Rook rook = new Rook(SideColor.WHITE);
             whiteRooks.add(rook);
         }
         setPiece(SQUARES[0][0], whiteRooks.get(0));
@@ -105,7 +105,7 @@ public class GameBoard extends JPanel{
 
         //white knights on 0,1 and 0,6
         for(int i = 0; i < 2; i++){
-            Knight knight = new Knight(PieceColor.WHITE_PIECE);
+            Knight knight = new Knight(SideColor.WHITE);
             whiteKnights.add(knight);
         }
         setPiece(SQUARES[0][1], whiteKnights.get(0));
@@ -113,7 +113,7 @@ public class GameBoard extends JPanel{
         
         //white bishops on 0,2 and 0,5
         for(int i = 0; i < 2; i++){
-            Bishop bishop = new Bishop(PieceColor.WHITE_PIECE);
+            Bishop bishop = new Bishop(SideColor.WHITE);
             whiteBishops.add(bishop);
         }
         setPiece(SQUARES[0][2], whiteBishops.get(0));
@@ -121,7 +121,7 @@ public class GameBoard extends JPanel{
         
         //white queen on 0,3
         {
-        Queen queen = new Queen(PieceColor.WHITE_PIECE);
+        Queen queen = new Queen(SideColor.WHITE);
         whiteQueens.add(queen);
         }
         setPiece(SQUARES[0][3], whiteQueens.get(0));
@@ -132,13 +132,13 @@ public class GameBoard extends JPanel{
         //BLACK PIECES:
         //create all black pawns on SQUARES 6,0 to 6,7
         for(int i = 0; i < 8; i++){
-            Pawn pawn = new Pawn(PieceColor.BLACK_PIECE);
+            Pawn pawn = new Pawn(SideColor.BLACK);
             blackPawns[i] = pawn;
             setPiece(SQUARES[6][i], pawn);
         }
         //black rooks on 7,0 and 7,7
         for (int i = 0; i < 2; i++) {
-            Rook rook = new Rook(PieceColor.BLACK_PIECE);
+            Rook rook = new Rook(SideColor.BLACK);
             blackRooks.add(rook);
         }
         setPiece(SQUARES[7][0], blackRooks.get(0));
@@ -146,7 +146,7 @@ public class GameBoard extends JPanel{
 
         //black knights on 7,1 and 7,6
         for (int i = 0; i < 2; i++) {
-            Knight knight = new Knight(PieceColor.BLACK_PIECE);
+            Knight knight = new Knight(SideColor.BLACK);
             blackKnights.add(knight);
         }
         setPiece(SQUARES[7][1], blackKnights.get(0));
@@ -154,7 +154,7 @@ public class GameBoard extends JPanel{
 
         //black bishops on 7,2 and 7,5
         for (int i = 0; i < 2; i++) {
-            Bishop bishop = new Bishop(PieceColor.BLACK_PIECE);
+            Bishop bishop = new Bishop(SideColor.BLACK);
             blackBishops.add(bishop);
         }
         setPiece(SQUARES[7][2], blackBishops.get(0));
@@ -162,7 +162,7 @@ public class GameBoard extends JPanel{
 
         //black queen on 7,3
         {
-        Queen queen = new Queen(PieceColor.BLACK_PIECE);
+        Queen queen = new Queen(SideColor.BLACK);
         blackQueens.add(queen);
         }
         setPiece(SQUARES[7][3], blackQueens.get(0));
@@ -189,7 +189,7 @@ public class GameBoard extends JPanel{
             setPiece(SQUARES[cord.x][cord.y], piece); //and set it on end tile
             piece.setHasMoved(); //note that the piece has moved at least once
             whiteToMove = !whiteToMove; //flip whose move it is
-            moveNumber++;
+            //moveNumber++;   
             
             if (piece instanceof Pawn) {
                 ((Pawn) piece).promote(moveTo);
