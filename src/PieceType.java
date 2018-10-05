@@ -1,7 +1,6 @@
 /*
  * Nick Soetaert
- * $date$
- * Copyright (c) 2017 Nick Soetaert
+ * December 18, 2017
  */
 
 public enum PieceType {

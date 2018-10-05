@@ -3,7 +3,6 @@
  * December 17, 2017
  */
 
-
 import javax.swing.ImageIcon;
 
 public abstract class Piece {
