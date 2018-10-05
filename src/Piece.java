@@ -1,11 +1,10 @@
-
-import javax.swing.ImageIcon;
-
 /*
  * Nick Soetaert
  * December 17, 2017
- * Copyright (c) 2017 Nick Soetaert
  */
+
+
+import javax.swing.ImageIcon;
 
 public abstract class Piece {
     protected ImageIcon _pieceImage;

@@ -1,7 +1,6 @@
 /*
  * Nick Soetaert
  * December 17, 2017
- * Copyright (c) 2017 Nick Soetaert
  */
 
 import java.awt.BorderLayout;

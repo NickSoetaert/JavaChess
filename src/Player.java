@@ -1,7 +1,6 @@
 /*
  * Nick Soetaert
  * October 4, 2018
- * Copyright (c) 2018 Nick Soetaert
  */
 
 import java.util.Timer;

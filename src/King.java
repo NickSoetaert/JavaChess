@@ -1,7 +1,6 @@
 /*
  * Nick Soetaert
- * December 18, 2017
- * Copyright (c) 2017 Nick Soetaert
+ * December October 4, 2018
  */
 import javax.swing.ImageIcon;
 import java.lang.Math.*;
